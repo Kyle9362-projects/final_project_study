@@ -22,8 +22,11 @@
         <td><%= study.datatype.datatype %></td>
         <td>
           <a href="/studies/<%= study.id %>" class="btn btn-primary">Show</a>
-          <a href="/studies/<%= study.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_study/<%= study.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == study.user %>
+            <a href="/studies/<%= study.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_study/<%= study.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>
