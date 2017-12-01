@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @subject.errors.any? %>
+  <% @subject.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Subject</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_subject" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for firstname -->
+      <div class="form-group">
+        <label for="firstname" class="control-label">
+          Firstname
+        </label>
+
+        <input type="text" id="firstname" name="firstname" placeholder="Firstname" class="form-control" value="<%= @subject.firstname %>">
+      </div>
+
+      <!-- Label and input for lastname -->
+      <div class="form-group">
+        <label for="lastname" class="control-label">
+          Lastname
+        </label>
+
+        <input type="text" id="lastname" name="lastname" placeholder="Lastname" class="form-control" value="<%= @subject.lastname %>">
+      </div>
+
+      <!-- Label and input for study_id -->
+      <div class="form-group">
+        <label for="study_id" class="control-label">
+          Study
+        </label>
+
+        <input type="text" id="study_id" name="study_id" placeholder="Study" class="form-control" value="<%= @subject.study_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Subject
+      </button>
+      or
+      <a href="/subjects">Cancel</a>
+    </form>
+  </div>
+</div>

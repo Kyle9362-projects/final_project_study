@@ -1,0 +1,32 @@
+<div class="page-header">
+  <h1>
+    Subjects
+    <a href="/subjects/new" class="btn btn-lg btn-success">New Subject</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Study</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @subjects.each do |subject| %>
+      <tr>
+        <td><%= subject.firstname %></td>
+        <td><%= subject.lastname %></td>
+        <td><%= subject.study_id %></td>
+        <td>
+          <a href="/subjects/<%= subject.id %>" class="btn btn-primary">Show</a>
+          <a href="/subjects/<%= subject.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_subject/<%= subject.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
