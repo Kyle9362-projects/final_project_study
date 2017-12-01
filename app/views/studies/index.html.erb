@@ -1,0 +1,32 @@
+<div class="page-header">
+  <h1>
+    Studies
+    <a href="/studies/new" class="btn btn-lg btn-success">New Study</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>User</th>
+        <th>Title</th>
+        <th>Datatype</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @studies.each do |study| %>
+      <tr>
+        <td><%= study.user_id %></td>
+        <td><%= study.title %></td>
+        <td><%= study.datatype_id %></td>
+        <td>
+          <a href="/studies/<%= study.id %>" class="btn btn-primary">Show</a>
+          <a href="/studies/<%= study.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_study/<%= study.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
