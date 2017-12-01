@@ -1,0 +1,1 @@
+{"name":"Final_Project_Study","repository":"https://github.com/Kyle9362/final_project_study","env":{"CLOUDINARY_CLOUD_NAME":{"required":true},"CLOUDINARY_API_KEY":{"required":true},"CLOUDINARY_API_SECRET":{"required":true},"ROLLBAR_ACCESS_TOKEN":{"required":true}}}
