@@ -1,0 +1,8 @@
+class Record < ApplicationRecord
+  # Direct associations
+
+  # Indirect associations
+
+  # Validations
+
+end

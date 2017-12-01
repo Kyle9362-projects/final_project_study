@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Record resource:
+  # CREATE
+  get "/records/new", :controller => "records", :action => "new"
+  post "/create_record", :controller => "records", :action => "create"
+
+  # READ
+  get "/records", :controller => "records", :action => "index"
+  get "/records/:id", :controller => "records", :action => "show"
+
+  # UPDATE
+  get "/records/:id/edit", :controller => "records", :action => "edit"
+  post "/update_record/:id", :controller => "records", :action => "update"
+
+  # DELETE
+  get "/delete_record/:id", :controller => "records", :action => "destroy"
+  #------------------------------
+
   # Routes for the Subject resource:
   # CREATE
   get "/subjects/new", :controller => "subjects", :action => "new"

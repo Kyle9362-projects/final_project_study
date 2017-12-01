@@ -1,0 +1,34 @@
+<div class="page-header">
+  <h3>Record #<%= @record.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Datetime</dt>
+      <dd><%= @record.datetime %></dd>
+
+      <dt>Data</dt>
+      <dd><%= @record.data %></dd>
+
+      <dt>Subject</dt>
+      <dd><%= @record.subject_id %></dd>
+
+      <dt>Data type</dt>
+      <dd><%= @record.data_type_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/records" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/records/<%= @record.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_record/<%= @record.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

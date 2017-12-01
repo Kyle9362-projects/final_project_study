@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @record.errors.any? %>
+  <% @record.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Record</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_record" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for datetime -->
+      <div class="form-group">
+        <label for="datetime" class="control-label">
+          Datetime
+        </label>
+
+        <input type="text" id="datetime" name="datetime" placeholder="Datetime" class="form-control" value="<%= @record.datetime %>">
+      </div>
+
+      <!-- Label and input for data -->
+      <div class="form-group">
+        <label for="data" class="control-label">
+          Data
+        </label>
+
+        <textarea id="data" name="data" placeholder="Data" class="form-control" rows="3"><%= @record.data %></textarea>
+      </div>
+
+      <!-- Label and input for subject_id -->
+      <div class="form-group">
+        <label for="subject_id" class="control-label">
+          Subject
+        </label>
+
+        <input type="text" id="subject_id" name="subject_id" placeholder="Subject" class="form-control" value="<%= @record.subject_id %>">
+      </div>
+
+      <!-- Label and input for data_type_id -->
+      <div class="form-group">
+        <label for="data_type_id" class="control-label">
+          Data type
+        </label>
+
+        <input type="text" id="data_type_id" name="data_type_id" placeholder="Data type" class="form-control" value="<%= @record.data_type_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Record
+      </button>
+      or
+      <a href="/records">Cancel</a>
+    </form>
+  </div>
+</div>
