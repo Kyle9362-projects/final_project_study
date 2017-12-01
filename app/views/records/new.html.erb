@@ -42,7 +42,7 @@
           Subject
         </label>
 
-        <input type="text" id="subject_id" name="subject_id" placeholder="Subject" class="form-control" value="<%= @record.subject_id %>">
+        <%= select_tag(:subject_id, options_from_collection_for_select(Subject.all, :id, :firstname, @record.subject_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for data_type_id -->
