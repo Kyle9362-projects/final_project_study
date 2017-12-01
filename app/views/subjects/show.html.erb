@@ -57,6 +57,47 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_record" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for datetime -->
+      <div class="form-group">
+        <label for="datetime" class="control-label">
+          Datetime
+        </label>
+
+        <input type="text" id="datetime" name="datetime" placeholder="Datetime" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for data -->
+      <div class="form-group">
+        <label for="data" class="control-label">
+          Data
+        </label>
+
+        <textarea id="data" name="data" placeholder="Data" class="form-control" rows="3"></textarea>
+      </div>
+
+      <!-- Label and input for subject_id -->
+      <input type="hidden" name="subject_id" value="<%= @subject.id %>">
+
+      <!-- Label and input for data_type_id -->
+      <div class="form-group">
+        <label for="data_type_id" class="control-label">
+          Data type
+        </label>
+
+        <%= select_tag(:data_type_id, options_from_collection_for_select(Datatype.all, :id, :datatype), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Record
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

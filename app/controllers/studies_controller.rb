@@ -16,6 +16,7 @@ class StudiesController < ApplicationController
   end
 
   def show
+    @subject = Subject.new
     @study = Study.find(params[:id])
 
     render("studies/show.html.erb")

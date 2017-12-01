@@ -6,6 +6,8 @@ class DatatypesController < ApplicationController
   end
 
   def show
+    @record = Record.new
+    @study = Study.new
     @datatype = Datatype.find(params[:id])
 
     render("datatypes/show.html.erb")

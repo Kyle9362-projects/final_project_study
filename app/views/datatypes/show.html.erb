@@ -51,6 +51,32 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_study" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+      <!-- Label and input for title -->
+      <div class="form-group">
+        <label for="title" class="control-label">
+          Title
+        </label>
+
+        <input type="text" id="title" name="title" placeholder="Title" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for datatype_id -->
+      <input type="hidden" name="datatype_id" value="<%= @datatype.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Study
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -82,6 +108,53 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_record" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for datetime -->
+      <div class="form-group">
+        <label for="datetime" class="control-label">
+          Datetime
+        </label>
+
+        <input type="text" id="datetime" name="datetime" placeholder="Datetime" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for data -->
+      <div class="form-group">
+        <label for="data" class="control-label">
+          Data
+        </label>
+
+        <textarea id="data" name="data" placeholder="Data" class="form-control" rows="3"></textarea>
+      </div>
+
+      <!-- Label and input for subject_id -->
+      <div class="form-group">
+        <label for="subject_id" class="control-label">
+          Subject
+        </label>
+
+        <%= select_tag(:subject_id, options_from_collection_for_select(Subject.all, :id, :firstname), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for data_type_id -->
+      <div class="form-group">
+        <label for="data_type_id" class="control-label">
+          Data type
+        </label>
+
+        <%= select_tag(:data_type_id, options_from_collection_for_select(Datatype.all, :id, :datatype), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Record
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

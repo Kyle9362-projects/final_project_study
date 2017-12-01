@@ -6,6 +6,7 @@ class SubjectsController < ApplicationController
   end
 
   def show
+    @record = Record.new
     @subject = Subject.find(params[:id])
 
     render("subjects/show.html.erb")
