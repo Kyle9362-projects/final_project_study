@@ -42,7 +42,7 @@
           Study
         </label>
 
-        <input type="text" id="study_id" name="study_id" placeholder="Study" class="form-control" value="<%= @subject.study_id %>">
+        <%= select_tag(:study_id, options_from_collection_for_select(Study.all, :id, :user_id, @subject.study_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">
