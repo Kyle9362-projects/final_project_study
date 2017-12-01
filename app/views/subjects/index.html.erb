@@ -19,7 +19,7 @@
       <tr>
         <td><%= subject.firstname %></td>
         <td><%= subject.lastname %></td>
-        <td><%= subject.study_id %></td>
+        <td><%= subject.study.user_id %></td>
         <td>
           <a href="/subjects/<%= subject.id %>" class="btn btn-primary">Show</a>
           <a href="/subjects/<%= subject.id %>/edit" class="btn btn-warning">Edit</a>
