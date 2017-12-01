@@ -48,8 +48,6 @@ class StudiesController < ApplicationController
 
   def update
     @study = Study.find(params[:id])
-
-    @study.user_id = params[:user_id]
     @study.title = params[:title]
     @study.datatype_id = params[:datatype_id]
 
