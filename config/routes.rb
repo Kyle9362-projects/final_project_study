@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Datatype resource:
+  # CREATE
+  get "/datatypes/new", :controller => "datatypes", :action => "new"
+  post "/create_datatype", :controller => "datatypes", :action => "create"
+
+  # READ
+  get "/datatypes", :controller => "datatypes", :action => "index"
+  get "/datatypes/:id", :controller => "datatypes", :action => "show"
+
+  # UPDATE
+  get "/datatypes/:id/edit", :controller => "datatypes", :action => "edit"
+  post "/update_datatype/:id", :controller => "datatypes", :action => "update"
+
+  # DELETE
+  get "/delete_datatype/:id", :controller => "datatypes", :action => "destroy"
+  #------------------------------
+
   # Routes for the Record resource:
   # CREATE
   get "/records/new", :controller => "records", :action => "new"
