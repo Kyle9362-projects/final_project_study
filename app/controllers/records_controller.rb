@@ -1,6 +1,6 @@
 class RecordsController < ApplicationController
   def index
-    @records = Record.all
+    @records = Record.page(params[:page]).per(10)
 
     render("records/index.html.erb")
   end
