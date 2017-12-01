@@ -1,5 +1,7 @@
 ActiveAdmin.register Record do
 
+ permit_params :datetime, :data, :subject_id, :data_type_id
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
