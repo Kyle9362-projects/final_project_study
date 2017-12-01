@@ -42,7 +42,7 @@
           Datatype
         </label>
 
-        <input type="text" id="datatype_id" name="datatype_id" placeholder="Datatype" class="form-control" value="<%= @study.datatype_id %>">
+        <%= select_tag(:datatype_id, options_from_collection_for_select(Datatype.all, :id, :datatype, @study.datatype_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
