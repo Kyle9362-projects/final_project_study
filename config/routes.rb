@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "studies#index"
   # Routes for the Datatype resource:
   # CREATE
   get "/datatypes/new", :controller => "datatypes", :action => "new"
