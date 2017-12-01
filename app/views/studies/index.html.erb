@@ -17,7 +17,7 @@
 
       <% @studies.each do |study| %>
       <tr>
-        <td><%= study.user_id %></td>
+        <td><%= study.user.email %></td>
         <td><%= study.title %></td>
         <td><%= study.datatype_id %></td>
         <td>
