@@ -10,7 +10,7 @@ class StudiesController < ApplicationController
   end
 
   def index
-    @studies = Study.all
+    @studies = current_user.studies.page(params[:page]).per(10)
 
     render("studies/index.html.erb")
   end
