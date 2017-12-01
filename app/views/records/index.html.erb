@@ -20,8 +20,20 @@
       <tr>
         <td><%= record.datetime %></td>
         <td><%= record.data %></td>
-        <td><%= record.subject.firstname %></td>
-        <td><%= record.data_type.datatype %></td>
+        <td>
+          <% if record.subject.present? %>
+            <a href="/subjects/<%= record.subject.id %>">
+              <%= record.subject.firstname %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if record.data_type.present? %>
+            <a href="/datatypes/<%= record.data_type.id %>">
+              <%= record.data_type.datatype %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/records/<%= record.id %>" class="btn btn-primary">Show</a>
           <a href="/records/<%= record.id %>/edit" class="btn btn-warning">Edit</a>

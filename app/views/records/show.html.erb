@@ -12,10 +12,22 @@
       <dd><%= @record.data %></dd>
 
       <dt>Subject</dt>
-      <dd><%= @record.subject_id %></dd>
+      <dd>
+        <% if @record.subject.present? %>
+          <a href="/subjects/<%= @record.subject_id %>">
+            <%= @record.subject.firstname %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Data type</dt>
-      <dd><%= @record.data_type_id %></dd>
+      <dd>
+        <% if @record.data_type.present? %>
+          <a href="/datatypes/<%= @record.data_type_id %>">
+            <%= @record.data_type.datatype %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

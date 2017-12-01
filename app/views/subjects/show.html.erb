@@ -12,7 +12,13 @@
       <dd><%= @subject.lastname %></dd>
 
       <dt>Study</dt>
-      <dd><%= @subject.study_id %></dd>
+      <dd>
+        <% if @subject.study.present? %>
+          <a href="/studies/<%= @subject.study_id %>">
+            <%= @subject.study.user_id %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

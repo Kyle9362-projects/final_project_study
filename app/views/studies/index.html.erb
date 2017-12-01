@@ -17,9 +17,21 @@
 
       <% @studies.each do |study| %>
       <tr>
-        <td><%= study.user.email %></td>
+        <td>
+          <% if study.user.present? %>
+            <a href="/users/<%= study.user.id %>">
+              <%= study.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td><%= study.title %></td>
-        <td><%= study.datatype.datatype %></td>
+        <td>
+          <% if study.datatype.present? %>
+            <a href="/datatypes/<%= study.datatype.id %>">
+              <%= study.datatype.datatype %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/studies/<%= study.id %>" class="btn btn-primary">Show</a>
           
