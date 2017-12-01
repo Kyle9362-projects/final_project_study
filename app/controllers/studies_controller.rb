@@ -10,7 +10,8 @@ class StudiesController < ApplicationController
   end
 
   def index
-    @studies = current_user.studies.page(params[:page]).per(10)
+    @q = current_user.studies.ransack(params[:q])
+      @studies = @q.result(:distinct => true).includes(:user, :subjects, :datatype).page(params[:page]).per(10)
 
     render("studies/index.html.erb")
   end

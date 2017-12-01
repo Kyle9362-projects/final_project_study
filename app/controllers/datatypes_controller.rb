@@ -1,6 +1,7 @@
 class DatatypesController < ApplicationController
   def index
-    @datatypes = Datatype.page(params[:page]).per(10)
+    @q = Datatype.ransack(params[:q])
+    @datatypes = @q.result(:distinct => true).includes(:studies, :records).page(params[:page]).per(10)
 
     render("datatypes/index.html.erb")
   end

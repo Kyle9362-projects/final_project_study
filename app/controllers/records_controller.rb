@@ -1,6 +1,7 @@
 class RecordsController < ApplicationController
   def index
-    @records = Record.page(params[:page]).per(10)
+    @q = Record.ransack(params[:q])
+    @records = @q.result(:distinct => true).includes(:subject, :data_type).page(params[:page]).per(10)
 
     render("records/index.html.erb")
   end
