@@ -1,6 +1,8 @@
 class Study < ApplicationRecord
   # Direct associations
 
+  belongs_to :datatype
+
   has_many   :subjects,
              :dependent => :destroy
 
